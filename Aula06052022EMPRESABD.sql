@@ -239,7 +239,23 @@ INSERT INTO ITENS_OS (idServico,idOS)
 		(10,53),
 		(11,54);
     
+    INSERT INTO cliente (nome_cliente,cpf_cliente,idade,idendereco,idcliente)
+VALUES
+  ("ac, feugiat","lobortis, nisi nibh lacinia orci, consectetuer euismod est",3,2),
+  ("enim. Nunc","vitae sodales nisi magna sed dui.",4,4),
+  ("porttitor vulputate,","urna et arcu imperdiet ullamcorper. Duis at","Etiam vestibulum massa rutrum magna. Cras convallis",9,5),
+  ("eget nisi","Mauris molestie pharetra nibh. Aliquam ornare, libero","quam. Pellentesque habitant morbi tristique senectus",9,6),
+  ("sociis natoque","erat volutpat. Nulla","Nullam feugiat placerat velit. Quisque varius. Nam porttitor",5,7),
+  ("lectus, a","sem magna nec quam. Curabitur vel lectus. Cum sociis","scelerisque dui. Suspendisse ac",8,8),
+  ("lorem, luctus","dolor. Fusce mi lorem,","dolor elit, pellentesque a, facilisis non, bibendum sed, est.",4,9),
+  ("Ut semper","lectus ante dictum mi, ac mattis velit","In lorem. Donec elementum, lorem ut aliquam",8,10),
+  ("est ac","parturient montes, nascetur ridiculus mus. Proin","at auctor ullamcorper, nisl arcu iaculis",3,11),
+  ("Vivamus sit","Morbi vehicula. Pellentesque tincidunt tempus risus. Donec","Proin dolor. Nulla semper tellus id nunc interdum feugiat.",7,12);
     
+      idCliente INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nome_cliente VARCHAR(120) NOT NULL,
+    cpf_cliente VARCHAR(11) NOT NULL,
+    idEndereco INT NOT NULL,
 select s.nomeServico, d.nomeDepartamento, o.resposta from Servico s INNER JOIN ITENS_OS i ON (i.idServico = s.idServico) INNER JOIN OS o ON (o.idOS = i.idOS) INNER JOIN Departamento d ON (d.idDepartamento = o.idDepartamento) and d.idDepartamento = 1;  
    select s.nomeServico, f.nomeFuncionario from Servico s INNER JOIN ITENS_OS i ON (i.idServico = s.idServico) INNER JOIN OS o ON (o.idOS = i.idOS) INNER JOIN Funcionario f ON (f.idFuncionario = o.idFuncionario);  
    select s.nomeServico, c.nomeCliente from Servico s INNER JOIN ITENS_OS i ON (i.idServico = s.idServico) INNER JOIN OS o ON (o.idOS = i.idOS) INNER JOIN Cliente c ON (c.idCliente = o.idCliente);
