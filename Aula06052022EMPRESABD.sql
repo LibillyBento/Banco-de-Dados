@@ -127,8 +127,6 @@ INSERT INTO OS(datasolicitacao_OS, dataprevisao_OS, resposta, idFuncionario, idD
 INSERT INTO TELEFONE(numero_Telefone, idFuncionario, idCliente, DDD_Telefone) VALUE ("4569-7895", "01", "01", "75");
 INSERT INTO TELEFONE(numero_Telefone, idFuncionario, idCliente, DDD_Telefone) VALUE ("4569-5426", "01", "01", "75")
 
-
- 
   
   INSERT INTO DEPARTAMENTO (nomeDepartamento,descricaoDepartamento,idEmpresa)
 VALUES
@@ -166,29 +164,6 @@ VALUES
   ("Nita Delaney","7149104428",10,2),
   ("Neil Foreman","5368144145",5,6);
 
-INSERT INTO ENDERECO (bairro_Endereco,rua_Endereco,numero_Endereco, cep_Endereco)
-VALUEScliente
-  ("Trentino-Alto Adige","P.O. Box 699, 1271 Ac Rd.",13, 11111),
-  ("Extremadura","Ap #311-9004 Dolor Street",5,22222222),
-  ("Santa Catarina","565-911 Dui, Ave",3,33333333),
-  ("North Island","4043 Et, Street",19, 44444444),
-  ("Ogun","180-9542 Praesent St.",11),
-  ("Limón","Ap #950-6380 Euismod Rd.",19),
-  ("Junín","7933 Neque. Road",19),
-  ("North West","P.O. Box 681, 6652 Molestie Street",8),
-  ("Special Region of Yogyakarta","159-9093 Donec St.",18),
-  ("Limón","2283 Est. Rd.",14),
-  ("Oslo","303-8148 Egestas St.",17),
-  ("Junín","456-810 Risus. Rd.",11),
-  ("National Capital Region","1539 Elit, Street",16),
-  ("Paraíba","2891 Mauris, St.",12),
-  ("Gävleborgs län","8196 Eleifend. Avenue",11),
-  ("Utrecht","9923 Cras Av.",5),
-  ("Molise","Ap #698-3421 Mauris, St.",3),
-  ("Saint Petersburg City","205-7469 Aliquet Rd.",3),
-  ("North Island","567-1090 Erat, Rd.",9),
-  ("Piemonte","Ap #651-6134 Eleifend Av.",2);
-
 INSERT INTO CLIENTE (nome_cliente,cpf_cliente,idEndereco)
 VALUES
   ("Richard Higgins","1944412",46),
@@ -201,3 +176,70 @@ VALUES
   ("Amery Mack","4912935",44),
   ("Ashely Espinoza","7673210",53),
   ("Willa Butler","7313795",62);
+  
+INSERT INTO ENDERECO (bairro_Endereco,rua_Endereco,numero_Endereco, cep_Endereco)
+VALUES
+  ("Baden Württemberg","9589730 Scelerisque St.",19, 01),
+  ("Lombardia","P.O. Box 692, 3249 Quisque St.",20,00),
+  ("Huábei","P.O. Box 607, 2685 Risus. Ave",15,05),
+  ("Kaliningrad Oblast","3445841 In Rd.",8,89),
+  ("Dalarnas län","P.O. Box 343, 5444 Enim Av.",5,74),
+  ("Zuid Holland","6168856 Integer St.",19,96),
+  ("Haute Normandie","Ap 326-529 Tempus Avenue",2,41),
+  ("Bicol Region","Ap 888-7380 Orci Av.",1,55),
+  ("Veracruz","Ap 170-5066 Orci Av.",14,66),
+  ("Zachodniopomorskie","422-6230 Cras Street",19,33),
+  ("Yucatán","4358419 Vitae Ave",17,48),
+  ("Troms og Finnmark","Ap 7846475 Blandit Avenue",7,11),
+  ("Cundinamarca","P.O. Box 998, 2124 Arcu Ave",7,02),
+  ("Vienna","Ap 9216290 Pede, Avenue",7,99),
+  ("Andalucía","2068572 Quis, Rd.",19,15),
+  ("Luik","P.O. Box 882, 1543 Metus. St.",14,36),
+  ("Connacht","Ap 242-8338 Enim Rd.",18,85),
+  ("Lviv oblast","P.O. Box 638, 8433 Nam Street",19,08),
+  ("West Region","1848 Auctor Avenue",2,68),
+  ("Lower Austria","3289 Adipiscing St.",10,76);
+
+INSERT INTO OS (datasolicitacao_OS,dataprevisao_OS,resposta,idFuncionario,idDepartamento,idCliente)
+	VALUES
+		("8810602","5267141","accan",11,3,7),
+		("5692563","5508452","ullcorper. Duis",9,2,3),
+		("5458850","5486447","vaus",3,4,6),
+		("7811506","1557365","ante",4,4,4),
+		("5366658","2420844","Proin eget odio.",8,8,3),
+		("6981392","4515169","interdum ligula",9,9,4),
+		("7552328","5361334","aliquam arcu.",23,3,11),
+		("4202783","8652123","felis.",3,1,5),
+		("3328810","7483937","faucibus ut,",6,5,3),
+		("4852322","6701426","nisl. Quisque",4,10,3);
+        
+INSERT INTO Servico (nome_Servico,recursos_Servico)
+	VALUES
+		("dolor","sed"),
+		("hendrerit.","posuere"),
+		("arcu.","augue ac"),
+		("nulla","lectus convallis est,"),
+		("sollicitudin","eu neque"),
+		("blandit","mi"),
+		("mollis","per conubia nostra,"),
+		("ligula","ullamcorper eu,"),
+		("Integer","Ut sagittis"),
+		("ac,","porttitor");
+        
+INSERT INTO ITENS_OS (idServico,idOS)
+	VALUES
+		(2,45),
+		(3,46),
+		(4,47),
+		(5,48),
+		(6,49),
+		(7,50),
+		(8,51),
+		(9,52),
+		(10,53),
+		(11,54);
+    
+    
+select s.nomeServico, d.nomeDepartamento, o.resposta from Servico s INNER JOIN ITENS_OS i ON (i.idServico = s.idServico) INNER JOIN OS o ON (o.idOS = i.idOS) INNER JOIN Departamento d ON (d.idDepartamento = o.idDepartamento) and d.idDepartamento = 1;  
+   select s.nomeServico, f.nomeFuncionario from Servico s INNER JOIN ITENS_OS i ON (i.idServico = s.idServico) INNER JOIN OS o ON (o.idOS = i.idOS) INNER JOIN Funcionario f ON (f.idFuncionario = o.idFuncionario);  
+   select s.nomeServico, c.nomeCliente from Servico s INNER JOIN ITENS_OS i ON (i.idServico = s.idServico) INNER JOIN OS o ON (o.idOS = i.idOS) INNER JOIN Cliente c ON (c.idCliente = o.idCliente);
