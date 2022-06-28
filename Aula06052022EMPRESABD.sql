@@ -264,3 +264,10 @@ VALUES
    select s.nome_Servico, c.nome_Cliente from Servico s INNER JOIN ITENS_OS i ON 
    (i.IdServico = s.IdServico) INNER JOIN OS o
    ON (o.IdOS = i.IdOS) INNER JOIN Cliente c ON (c.IdCliente = o.IdCliente);
+   
+SELECT
+  count(nome_Funcionario)
+FROM
+  FUNCIONARIO;
+  
+SELECT nome_Cliente as Cliente FROM CLIENTE;
