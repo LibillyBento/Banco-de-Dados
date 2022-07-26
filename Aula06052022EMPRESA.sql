@@ -298,3 +298,5 @@ SELECT D.nomeDepartamento, COUNT(*) as Quantidade FROM DEPARTAMENTO D join OS O 
 
 SELECT O.idDepartamento, (SELECT COUNT(*) fROM DEPARTAMENTO D WHERE D.idDepartamento = D.idDepartamento) as Quantidade FROM OS O GROUP BY O.idDepartamento;
 
+SELECT D.nomeDepartamento, COUNT(*) fROM DEPARTAMENTO D join OS O on (D.idDepartamento = O.idDepartamento) GROUP BY D.nomeDepartamento;
+
