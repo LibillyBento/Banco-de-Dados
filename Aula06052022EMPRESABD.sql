@@ -271,3 +271,17 @@ FROM
   FUNCIONARIO;
   
 SELECT nome_Cliente as Cliente FROM CLIENTE;
+
+SELECT
+  count(nome_cliente)
+FROM
+  CLIENTE;
+  
+SELECT
+ count(DISTINCT idFuncionario)
+  FROM
+   OS;
+
+SELECT idFuncionario, count(*)
+  FROM OS GROUP BY idFuncionario
+  
